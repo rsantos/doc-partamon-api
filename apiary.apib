@@ -1,0 +1,657 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# partamon-api
+
+Documentação API partamon
+
+# api/clients [/api/clients]
+
+## GET [GET]
+
++ Response 200 (application/json)
+
+        {
+            "current_page": 1,
+            "data": [
+                {
+                    "id": 1,
+                    "name": "client 3",
+                    "phone": "123456789",
+                    "email": "user3@domain.com",
+                    "created_at": "2017-09-30 19:36:15",
+                    "updated_at": "2017-09-30 19:36:15",
+                    "deleted_at": null,
+                    "DT_RowId": "row_1",
+                    "places": []
+                },
+                {
+                    "id": 2,
+                    "name": "client 1",
+                    "phone": "987654321",
+                    "email": "user1@domain.com",
+                    "created_at": "2017-09-30 19:37:57",
+                    "updated_at": "2017-09-30 19:37:57",
+                    "deleted_at": null,
+                    "DT_RowId": "row_2",
+                    "places": []
+                }
+            ],
+            "from": 1,
+            "last_page": 1,
+            "next_page_url": null,
+            "path": "https://private-2d01e0-partamonapi.apiary-mock.com/api/clients",
+            "per_page": 20,
+            "prev_page_url": null,
+            "to": 2,
+            "total": 2
+        }
+
+## POST [POST]
+
++ Request (application/json)
+
+        {
+            "name":"client 2",
+            "email":"user2@domain.com",
+            "phone":"123456789"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+            
+            Location: /api/clients/2
+
+    + Body
+    
+            {
+                "name": "client 2",
+                "phone": "123456789",
+                "email": "user2@domain.com",
+                "updated_at": "2017-09-29 04:24:28",
+                "created_at": "2017-09-29 04:24:28",
+                "id": 2,
+                "DT_RowId": "row_2"
+            }
+            
+# api/clients/{id} [/api/clients/{id}]
+
++ Parameters
+    + id: 2 (integer) client_id
+
+## GET [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 2,
+            "name": "client 1",
+            "phone": "987654321",
+            "email": "user1@domain.com",
+            "created_at": "2017-09-30 19:37:57",
+            "updated_at": "2017-09-30 19:37:57",
+            "deleted_at": null,
+            "DT_RowId": "row_2",
+            "places": []
+        }
+
+## PUT [PUT]
+
++ Request (application/json)
+
+        {
+            "name":"client 3",
+            "email":"user2@domain.com",
+            "phone":"123456789"
+        }
+        
++ Response 200 (application/json)
+
+    + Headers
+            
+            Location: /api/clients/2
+
+    + Body
+    
+            {
+                "id": 2,
+                "name": "client 3",
+                "phone": "987654321",
+                "email": "user2@domain.com",
+                "created_at": "2017-09-30 19:37:57",
+                "updated_at": "2017-09-30 19:45:46",
+                "deleted_at": null,
+                "DT_RowId": "row_2"
+            }
+
+## DELETE [DELETE]
+
++ Response 200 (application/json)
+
+        {
+            "id": 2,
+            "name": "client 3",
+            "phone": "987654321",
+            "email": "user2@domain.com",
+            "created_at": "2017-09-30 19:37:57",
+            "updated_at": "2017-09-30 19:47:25",
+            "deleted_at": "2017-09-30 19:47:25",
+            "DT_RowId": "row_2"
+        }
+
+# api/food_cultures [/api/food_cultures]
+
+## GET [GET]
+
++ Response 200 (application/json)
+
+        {
+            "current_page": 1,
+            "data": [
+                {"id": 1,"name": "Pessegueiro","created_at": "2017-10-01 00:37:56","updated_at": "2017-10-01 00:40:18","DT_RowId": "row_1"},
+                {"id": 2,"name": "Milho","created_at": "2017-10-01 00:38:05","updated_at": "2017-10-01 00:38:05","DT_RowId": "row_2"},
+                {"id": 3,"name": "Arroz","created_at": "2017-10-01 00:38:11","updated_at": "2017-10-01 00:38:11","DT_RowId": "row_3"},
+                {"id": 4,"name": "Maça","created_at": "2017-10-01 00:38:19","updated_at": "2017-10-01 00:38:19","DT_RowId": "row_4"},
+                {"id": 5,"name": "Citros","created_at": "2017-10-01 00:38:25","updated_at": "2017-10-01 00:38:25","DT_RowId": "row_5"},
+                {"id": 6,"name": "Soja","created_at": "2017-10-01 00:38:31","updated_at": "2017-10-01 00:38:31","DT_RowId": "row_6"}
+            ],
+            "from": 1,
+            "last_page": 1,
+            "next_page_url": null,
+            "path": "http://localhost:8000/api/food_cultures",
+            "per_page": 20,
+            "prev_page_url": null,
+            "to": 6,
+            "total": 6
+        }
+
+## POST [POST]
+
++ Request (application/json)
+
+        {
+            "name":"Soja"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+            
+            Location: /api/food_cultures/3
+
+    + Body
+    
+            {
+                "name": "Soja",
+                "updated_at": "2017-10-01 00:40:32",
+                "created_at": "2017-10-01 00:40:32",
+                "id": 7,
+                "DT_RowId": "row_7"
+            }
+
+# api/food_cultures/{id} [/api/food_cultures/{id}]
+
++ Parameters
+    + id: 7 (integer) food_culture_id
+
+## GET [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 7,
+            "name": "Soja",
+            "created_at": "2017-10-01 00:38:31",
+            "updated_at": "2017-10-01 00:38:31",
+            "DT_RowId": "row_7"
+        }
+
+## PUT [PUT]
+
++ Request (application/json)
+
+        {
+            "name":"Soja"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+            
+            Location: /api/food_cultures/7
+
+    + Body
+    
+            {
+                "id": 7,
+                "name": "Soja",
+                "created_at": "2017-10-01 00:38:31",
+                "updated_at": "2017-10-01 00:38:31",
+                "DT_RowId": "row_7"
+            }
+
+## DELETE [DELETE]
+
++ Response 200 (application/json)
+
+        {
+            "id": 7,
+            "name": "Soja",
+            "created_at": "2017-10-01 00:38:31",
+            "updated_at": "2017-10-01 00:38:31",
+            "DT_RowId": "row_7"
+        }
+
+# api/plague_groups [/api/plague_groups]
+
+## GET [GET]
+
++ Response 200 (application/json)
+
+        {
+            "current_page": 1,
+            "data": [
+                {
+                    "id": 1,
+                    "name_pt_br": "Doenças",
+                    "name_en": "Diseases",
+                    "created_at": "2017-09-30 20:02:07",
+                    "updated_at": "2017-09-30 20:03:57",
+                    "DT_RowId": "row_1"
+                },
+                {
+                    "id": 2,
+                    "name_pt_br": "Plantas Daninhas",
+                    "name_en": "Plantas Daninhas",
+                    "created_at": "2017-09-30 20:06:57",
+                    "updated_at": "2017-09-30 20:06:57",
+                    "DT_RowId": "row_2"
+                },
+                {
+                    "id": 3,
+                    "name_pt_br": "Insetos",
+                    "name_en": "Insetos",
+                    "created_at": "2017-09-30 20:07:12",
+                    "updated_at": "2017-09-30 20:07:12",
+                    "DT_RowId": "row_3"
+                }
+            ],
+            "from": 1,
+            "last_page": 1,
+            "next_page_url": null,
+            "path": "http://localhost:8000/api/plague_groups",
+            "per_page": 20,
+            "prev_page_url": null,
+            "to": 3,
+            "total": 3
+        }
+        
+## POST [POST]
+
++ Request (application/json)
+
+        {
+            "name_pt_br":"Insetos",
+            "name_en":"Insetos"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+            
+            Location: /api/plague_groups/3
+
+    + Body
+    
+            {
+                "name_pt_br": "Insetos",
+                "name_en": "Insetos",
+                "updated_at": "2017-09-30 20:07:12",
+                "created_at": "2017-09-30 20:07:12",
+                "id": 3,
+                "DT_RowId": "row_3"
+            }
+
+# api/plague_groups/{id} [/api/plague_groups/{id}]
+
++ Parameters
+    + id: 3 (integer) plague_group_id
+
+## GET [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 3,
+            "name_pt_br": "Insetos",
+            "name_en": "Insetos",
+            "created_at": "2017-09-30 20:07:12",
+            "updated_at": "2017-09-30 20:07:12",
+            "DT_RowId": "row_3"
+        }
+        
+## PUT [PUT]
+
++ Request (application/json)
+
+        {
+            "name_pt_br":"Insetos",
+            "name_en":"Insetos"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+            
+            Location: /api/plague_groups/3
+
+    + Body
+    
+            {
+                "name_pt_br": "Insetos",
+                "name_en": "Insetos",
+                "updated_at": "2017-09-30 20:07:12",
+                "created_at": "2017-09-30 20:07:12",
+                "id": 3,
+                "DT_RowId": "row_3"
+            }
+
+## DELETE [DELETE]
+
++ Response 200 (application/json)
+
+        {
+            "id": 3,
+            "name_pt_br": "Insetos",
+            "name_en": "Insetos",
+            "created_at": "2017-09-30 20:38:09",
+            "updated_at": "2017-09-30 20:38:09",
+            "DT_RowId": "row_3"
+        }
+
+# api/plagues [/api/plagues]
+
+## GET [GET]
+
++ Response 200 (application/json)
+
+        {
+            "current_page": 1,
+            "data": [
+                {
+                    "id": 1,
+                    "plague_group_id": 1,
+                    "common_name": "Bacteria",
+                    "scientific_name": "Bacteria",
+                    "image": null,
+                    "created_at": "2017-09-30 21:10:19",
+                    "updated_at": "2017-09-30 21:19:33",
+                    "DT_RowId": "row_1"
+                }
+            ],
+            "from": 1,
+            "last_page": 1,
+            "next_page_url": null,
+            "path": "http://localhost:8000/api/plagues",
+            "per_page": 20,
+            "prev_page_url": null,
+            "to": 1,
+            "total": 1
+        }
+
+## POST [POST]
+
++ Request (application/json)
+
+        {
+            "plague_group_id":1,
+            "common_name":"Bacteria",
+            "scientific_name":"Bacteria"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+            
+            Location: /api/plagues/1
+
+    + Body
+    
+            {
+                "id": 1,
+                "plague_group_id": 1,
+                "common_name": "Bacteria",
+                "scientific_name": "Bacteria",
+                "image": null,
+                "created_at": "2017-09-30 21:10:19",
+                "updated_at": "2017-09-30 21:19:33",
+                "DT_RowId": "row_1"
+            }
+
+# api/plagues/{id} [/api/plagues/{id}]
+
++ Parameters
+    + id: 1 (integer) plague_id
+
+## GET [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "plague_group_id": 1,
+            "common_name": "Bacteria",
+            "scientific_name": "Bacteria",
+            "image": null,
+            "created_at": "2017-09-30 21:10:19",
+            "updated_at": "2017-09-30 21:19:33",
+            "DT_RowId": "row_1"
+        }
+        
+## PUT [PUT]
+
++ Request (application/json)
+
+        {
+            "plague_group_id":1,
+            "common_name":"Bacteria",
+            "scientific_name":"Bacteria"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+            
+            Location: /api/plagues/1
+
+    + Body
+    
+            {
+                "id": 1,
+                "plague_group_id": 1,
+                "common_name": "Bacteria",
+                "scientific_name": "Bacteria",
+                "image": null,
+                "created_at": "2017-09-30 21:10:19",
+                "updated_at": "2017-09-30 21:19:33",
+                "DT_RowId": "row_1"
+            }
+
+## DELETE [DELETE]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "plague_group_id": 1,
+            "common_name": "Bacteria",
+            "scientific_name": "Bacteria",
+            "image": null,
+            "created_at": "2017-09-30 21:10:19",
+            "updated_at": "2017-09-30 21:19:33",
+            "DT_RowId": "row_1"
+        }
+
+# api/places [/api/places]
+
+## GET [GET]
+
++ Response 200 (application/json)
+
+        {
+            "current_page": 1,
+            "data": [
+                {
+                    "id": 1,
+                    "name": "Talhão 1",
+                    "owner": "Gregg Lane",
+                    "client_id": 1,
+                    "food_culture_id": 1,
+                    "area": "9364",
+                    "zoom_map": "10",
+                    "created_at": "2017-10-01 01:46:42",
+                    "updated_at": "2017-10-01 01:46:42",
+                    "deleted_at": null,
+                    "DT_RowId": "row_1",
+                    "food_culture_name": "Pessegueiro",
+                    "client_name": "client 3",
+                    "total_traps": 0,
+                    "traps": []
+                }
+            ],
+            "from": 1,
+            "last_page": 1,
+            "next_page_url": null,
+            "path": "http://localhost:8000/api/places",
+            "per_page": 20,
+            "prev_page_url": null,
+            "to": 1,
+            "total": 1
+        }
+
+## POST [POST]
+
++ Request (application/json)
+
+        {
+            "name":"Talhão 1",
+            "owner":"Gregg Lane",
+            "client_id":1,
+            "food_culture_id":1,
+            "area":"9364",
+            "zoom_map":"10"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+            
+            Location: /api/places/1
+
+    + Body
+    
+            {
+                "name": "Talhão",
+                "owner": "Gregg Lane",
+                "client_id": 1,
+                "food_culture_id": 1,
+                "area": "9364",
+                "zoom_map": "10",
+                "updated_at": "2017-10-01 01:50:02",
+                "created_at": "2017-10-01 01:50:02",
+                "id": 1,
+                "DT_RowId": "row_1",
+                "food_culture_name": "Pessegueiro",
+                "client_name": "client 3",
+                "total_traps": 0,
+                "traps": []
+            }
+
+# api/places/{id} [/api/places/{id}]
+
++ Parameters
+    + id: 1 (integer) place_id
+
+## GET [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "name": "Talhão 1",
+            "owner": "Gregg Lane",
+            "client_id": 1,
+            "food_culture_id": 1,
+            "area": "9364",
+            "zoom_map": "10",
+            "created_at": "2017-10-01 01:46:42",
+            "updated_at": "2017-10-01 01:46:42",
+            "deleted_at": null,
+            "DT_RowId": "row_1",
+            "food_culture_name": "Pessegueiro",
+            "client_name": "client 3",
+            "total_traps": 0,
+            "traps": []
+        }
+        
+## PUT [PUT]
+
++ Request (application/json)
+
+        {
+            "name":"Talhão 1",
+            "owner":"Gregg Lane",
+            "client_id":1,
+            "food_culture_id":1,
+            "area":"9364",
+            "zoom_map":"10"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+            
+            Location: /api/places/1
+
+    + Body
+    
+            {
+                "id": 1,
+                "name": "Talhão 1",
+                "owner": "Gregg Lane",
+                "client_id": 1,
+                "food_culture_id": 1,
+                "area": "9364",
+                "zoom_map": "10",
+                "created_at": "2017-10-01 01:46:42",
+                "updated_at": "2017-10-01 01:46:42",
+                "deleted_at": null,
+                "DT_RowId": "row_1",
+                "food_culture_name": "Pessegueiro",
+                "client_name": "client 3",
+                "total_traps": 0,
+                "traps": []
+            }
+
+## DELETE [DELETE]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "name": "Talhão 1",
+            "owner": "Gregg Lane",
+            "client_id": 1,
+            "food_culture_id": 1,
+            "area": "9364",
+            "zoom_map": "10",
+            "created_at": "2017-10-01 01:50:02",
+            "updated_at": "2017-10-01 01:50:13",
+            "deleted_at": "2017-10-01 01:50:13",
+            "DT_RowId": "row_1",
+            "food_culture_name": "Pessegueiro",
+            "client_name": "client 3",
+            "total_traps": 0,
+            "traps": []
+        }
